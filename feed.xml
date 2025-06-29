@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tooluxe - Multi-Tool Web Application</title>
+        <link>https://tooluxe.netlify.app/</link>
+        <description>Free online tools for everyday tasks including QR scanner, password generator, text-to-speech, text analyzer, and unit converter.</description>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 29 Mar 2025 00:00:00 GMT</lastBuildDate>
+        <atom:link href="https://tooluxe.netlify.app/feed.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>QR Code Scanner Tool</title>
+            <link>https://tooluxe.netlify.app/pages/qr-scanner.html</link>
+            <description>Scan QR codes using your device's camera. Quickly access websites, contact information, and more.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/qr-scanner.html</guid>
+        </item>
+        
+        <item>
+            <title>Password Generator Tool</title>
+            <link>https://tooluxe.netlify.app/pages/password-generator.html</link>
+            <description>Create strong, secure passwords with customizable options for length and character types.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/password-generator.html</guid>
+        </item>
+        
+        <item>
+            <title>Text to Speech Tool</title>
+            <link>https://tooluxe.netlify.app/pages/text-to-speech.html</link>
+            <description>Convert text to spoken words with adjustable voice options, speed, and pitch controls.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/text-to-speech.html</guid>
+        </item>
+        
+        <item>
+            <title>Text Analyzer Tool</title>
+            <link>https://tooluxe.netlify.app/pages/text-analyzer.html</link>
+            <description>Analyze text for word count, character count, reading time, and other useful metrics.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/text-analyzer.html</guid>
+        </item>
+        
+        <item>
+            <title>Unit Converter Tool</title>
+            <link>https://tooluxe.netlify.app/pages/unit-converter.html</link>
+            <description>Convert between different units of measurement including length, weight, temperature, and more.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/unit-converter.html</guid>
+        </item>
+        
+        <item>
+            <title>Weather Forecast Tool</title>
+            <link>https://tooluxe.netlify.app/pages/weather-forecast.html</link>
+            <description>Get real-time weather information for any location with temperature, humidity, and wind details.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/weather-forecast.html</guid>
+        </item>
+        
+        <item>
+            <title>URL Shortener Tool</title>
+            <link>https://tooluxe.netlify.app/pages/url-shortener.html</link>
+            <description>Create short, shareable links from long URLs. Perfect for social media, emails, and messaging.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/url-shortener.html</guid>
+        </item>
+        
+        <item>
+            <title>Color Picker Tool</title>
+            <link>https://tooluxe.netlify.app/pages/color-picker.html</link>
+            <description>Select, preview, and convert colors between HEX, RGB, and HSL formats. Save your favorite colors.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/color-picker.html</guid>
+        </item>
+
+        <item>
+            <title>Image Enhancer</title>
+            <link>https://tooluxe.netlify.app/pages/image-enhancer</link>
+            <description> Enhance your images with brightness, contrast, saturation, blur, and sharpness adjustments. Perfect for quick image editing.</description>
+            <pubDate>Wed, 29 Mar 2025 00:00:00 GMT</pubDate>
+            <guid>https://tooluxe.netlify.app/pages/image-enhancer</guid>
+        </item>
+
+    </channel>
+</rss> 

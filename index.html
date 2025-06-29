@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tooluxe - Multi-Tool Web Application</title>
+    <meta name="description"
+        content="Tooluxe offers free online tools including QR code scanner, password generator, text-to-speech converter, text analyzer, unit converter, weather forecast, URL shortener, and color picker.">
+    <meta name="keywords"
+        content="tooluxe, online tools, web tools, qr scanner, password generator, text to speech, text analyzer, unit converter, weather forecast, url shortener, color picker">
+    <meta name="author" content="Rehaan Hussain. S">
+    <link rel="canonical" href="https://tooluxe.netlify.app/">
+    <meta property="og:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta property="og:description"
+        content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, unit converter, weather forecast, URL shortener, and color picker.">
+    <meta property="og:url" content="https://tooluxe.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta name="twitter:description"
+        content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, unit converter, weather forecast, URL shortener, and color picker.">
+    <meta name="twitter:image" content="assets/logo.jpg">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="google-site-verification" content="uEMpgHvuwo31nHOnnU35AykVJo9mbaoTxbHbA-Q1T5w" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Tooluxe",
+        "url": "https://tooluxe.netlify.app/",
+        "description": "Free online tools for everyday tasks including QR scanner, password generator, text-to-speech, text analyzer, and unit converter.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Rehaan Hussain. S"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="/assets/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="assets/logo.jpg" alt="Tooluxe Logo" style="height: 30px; margin-right: 10px;"> Tooluxe
+            </a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="about.html" class="navbar-link">About</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="#our-tools" class="navbar-link">Our Tools</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="contact.html" class="navbar-link">Contact Us</a>
+                </li>
+
+
+                <li class="navbar-item">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container breadcrumbs-container">
+            <div class="breadcrumb-item">
+                <a href="index.html" class="breadcrumb-link active">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="tool-header">
+                <h1>Tooluxe</h1>
+                <p class="tool-description">A collection of useful web tools to help with everyday tasks</p>
+            </div>
+
+            <!-- Ad space at the top of tools section -->
+            <!-- <div class="ad-container" style="margin-bottom: var(--spacing-xl);" id="our-tools">
+                <p>
+                </p>
+            </div> -->
+
+            <div class="row">
+                <!-- QR Scanner Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <h3 class="tool-card-title">QR Code Scanner</h3>
+                        <p class="tool-card-description">
+                            Scan QR codes using your device's camera. Quickly access websites, contact information, and
+                            more.
+                        </p>
+                        <a href="pages/qr-scanner.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Password Generator Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3 class="tool-card-title">Password Generator</h3>
+                        <p class="tool-card-description">
+                            Create strong, secure passwords with customizable options for length and character types.
+                        </p>
+                        <a href="pages/password-generator.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Text to Speech Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <h3 class="tool-card-title">Text to Speech</h3>
+                        <p class="tool-card-description">
+                            Convert text to spoken words with adjustable voice options, speed, and pitch controls.
+                        </p>
+                        <a href="pages/text-to-speech.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Ad space between rows -->
+                <!-- <div class="col-12">
+                    <div class="ad-container" style="margin: var(--spacing-lg) 0;">
+                        <p>
+                        </p>
+                    </div>
+                </div> -->
+
+                <!-- Text Analyzer Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="tool-card-title">Text Analyzer</h3>
+                        <p class="tool-card-description">
+                            Analyze text for word count, character count, reading time, and other useful metrics.
+                        </p>
+                        <a href="pages/text-analyzer.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Unit Converter Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3 class="tool-card-title">Unit Converter</h3>
+                        <p class="tool-card-description">
+                            Convert between different units of measurement including length, weight, temperature, and
+                            more.
+                        </p>
+                        <a href="pages/unit-converter.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Weather Forecast Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <h3 class="tool-card-title">Weather Forecast</h3>
+                        <p class="tool-card-description">
+                            Get real-time weather information for any location with temperature, humidity, and wind
+                            details.
+                        </p>
+                        <a href="pages/weather-forecast.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Ad space between rows -->
+                <!-- <div class="col-12">
+                    <div class="ad-container" style="margin: var(--spacing-lg) 0;">
+                        <p>
+                        </p>
+                    </div>
+                </div> -->
+
+                <!-- URL Shortener Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3 class="tool-card-title">URL Shortener</h3>
+                        <p class="tool-card-description">
+                            Create short, shareable links from long URLs. Perfect for social media, emails, and
+                            messaging.
+                        </p>
+                        <a href="pages/url-shortener.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Color Picker Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="tool-card-title">Color Picker</h3>
+                        <p class="tool-card-description">
+                            Select, preview, and convert colors between HEX, RGB, and HSL formats. Save your favorite
+                            colors.
+                        </p>
+                        <a href="pages/color-picker.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+
+                <!-- Image Enhancer Card -->
+                <div class="col-4 mb-3">
+                    <div class="card tool-card">
+                        <div class="tool-card-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3 class="tool-card-title">Image Enhancer</h3>
+                        <p class="tool-card-description">
+                            Enhance your images with brightness, contrast, saturation, blur, and sharpness adjustments. Perfect for quick image editing.
+                        </p>
+                        <a href="pages/image-enhancer.html" class="btn btn-primary tool-card-link">Open Tool</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad space at the bottom of tools section -->
+            <!-- <div class="ad-container" style="margin-top: var(--spacing-xl);">
+                <p>
+                </p>
+            </div> -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title">Tooluxe</h4>
+                <p>A collection of useful web tools designed to help with everyday tasks. All tools are free to use and
+                    work directly in your browser.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tools</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="pages/qr-scanner.html">QR Scanner</a></li>
+                    <li class="footer-link"><a href="pages/password-generator.html">Password Generator</a></li>
+                    <li class="footer-link"><a href="pages/text-to-speech.html">Text to Speech</a></li>
+                    <li class="footer-link"><a href="pages/text-analyzer.html">Text Analyzer</a></li>
+                    <li class="footer-link"><a href="pages/unit-converter.html">Unit Converter</a></li>
+                    <li class="footer-link"><a href="pages/weather-forecast.html">Weather Forecast</a></li>
+                    <li class="footer-link"><a href="pages/url-shortener.html">URL Shortener</a></li>
+                    <li class="footer-link"><a href="pages/color-picker.html">Color Picker</a></li>
+                    <li class="footer-link"><a href="pages/image-enhancer.html">Image Enhancer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="about.html">About Us</a></li>
+                    <li class="footer-link"><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li class="footer-link"><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li class="footer-link"><a href="contact.html">Contact</a></li>
+                    <li class="footer-link"><a href="https://tooluxe-blogs.netlify.app/" target="_blank">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Tooluxe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/schema.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            injectPageSchemas('home');
+        });
+    </script>
+</body>
+
+</html>
