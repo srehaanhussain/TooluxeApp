@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Tooluxe offers free online tools including QR code scanner, QR code generator, password generator, text-to-speech converter, text analyzer, and unit converter.">
+    <meta name="keywords" content="tooluxe, online tools, web tools, qr scanner, qr generator, password generator, text to speech, text analyzer, unit converter">
+    <meta name="author" content="Rehaan Hussain. S">
+    <link rel="canonical" href="https://tooluxe.netlify.app/">
+    <meta property="og:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta property="og:description" content="Free online tools for everyday tasks - QR scanner, QR generator, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta property="og:url" content="https://tooluxe.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta name="twitter:description" content="Free online tools for everyday tasks - QR scanner, QR generator, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta name="twitter:image" content="../assets/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Tools - Tooluxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="/assets/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/theme.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="navbar-logo">
+                <img src="../assets/logo.jpg" alt="Tooluxe Logo" style="height: 30px; margin-right: 10px;"> Tooluxe
+            </a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="../index.html" class="navbar-link">Home</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/about.html" class="navbar-link">About us</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/index.html#our-tools" class="navbar-link">Our Tools</a>
+                </li>
+                
+                <li class="navbar-item">
+                    <a href="/contact.html" class="navbar-link">Contact us</a>
+                </li>
+
+                <li class="navbar-item">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container breadcrumbs-container">
+            <div class="breadcrumb-item">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+            </div>
+            <div class="breadcrumb-item">
+                <a href="qr-scanner.html" class="breadcrumb-link active">QR Scanner</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container tool-container">
+            <div class="tool-header">
+                <h1>QR Code Tools</h1>
+                <p class="tool-description">Scan QR codes or generate your own QR codes</p>
+            </div>
+
+            <div class="card">
+                <!-- Tab Navigation -->
+                <div class="tab-navigation mb-4">
+                    <button class="tab-btn active" data-tab="scanner">
+                        <i class="fas fa-qrcode"></i> QR Scanner
+                    </button>
+                    <button class="tab-btn" data-tab="generator">
+                        <i class="fas fa-plus-circle"></i> QR Generator
+                    </button>
+                </div>
+
+                <!-- Scanner Tab -->
+                <div class="tab-content active" id="scanner-tab">
+                    <div class="text-center mb-3">
+                        <div id="reader-container">
+                            <div id="reader"></div>
+                        </div>
+                        <div class="mt-3">
+                            <button id="start-button" class="btn btn-primary">
+                                <i class="fas fa-camera"></i> Start Camera
+                            </button>
+                            <button id="stop-button" class="btn btn-outline" style="display: none;">
+                                <i class="fas fa-stop"></i> Stop Camera
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mt-3">
+                        <label for="camera-select" class="form-label">Select Camera:</label>
+                        <select id="camera-select" class="form-control">
+                            <option value="">Loading cameras...</option>
+                        </select>
+                    </div>
+                    
+                    <div id="result-container" class="result-container mt-3" style="display: none;">
+                        <h3>Scan Result:</h3>
+                        <div id="result-text"></div>
+                        <button id="copy-result" class="copy-btn" title="Copy to clipboard">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                        <div class="mt-3">
+                            <a id="result-link" href="#" target="_blank" class="btn btn-primary" style="display: none;">
+                                <i class="fas fa-external-link-alt"></i> Open Link
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h3>Instructions:</h3>
+                        <ol>
+                            <li>Click the "Start Camera" button to activate your device's camera.</li>
+                            <li>Point your camera at a QR code to scan it.</li>
+                            <li>The scan result will appear below the camera view.</li>
+                            <li>If the result is a URL, you can click "Open Link" to visit the website.</li>
+                            <li>Click "Copy" to copy the result to your clipboard.</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h3>Upload QR Code Image:</h3>
+                        <p>Alternatively, you can upload an image containing a QR code:</p>
+                        <div class="form-group">
+                            <input type="file" id="qr-input-file" class="form-control" accept="image/*">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generator Tab -->
+                <div class="tab-content" id="generator-tab">
+                    <div class="form-group">
+                        <label for="qr-content" class="form-label">Enter QR Code Content:</label>
+                        <textarea id="qr-content" class="form-control" rows="3" placeholder="Enter text, URL, or any content to generate QR code"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qr-size" class="form-label">QR Code Size:</label>
+                        <input type="range" id="qr-size" class="form-range" min="128" max="190" value="128">
+                        <span id="size-value">128</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qr-color" class="form-label">QR Code Color:</label>
+                        <input type="color" id="qr-color" class="form-control" value="#000000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qr-background" class="form-label">Background Color:</label>
+                        <input type="color" id="qr-background" class="form-control" value="#ffffff">
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button id="generate-button" class="btn btn-primary">
+                            <i class="fas fa-qrcode"></i> Generate QR Code
+                        </button>
+                    </div>
+
+                    <div id="qr-output" class="text-center mt-4" style="display: none;">
+                        <div id="qr-code">
+                            <canvas id="qr-canvas"></canvas>
+                        </div>
+                        <div class="mt-3">
+                            <button id="download-qr" class="btn btn-primary">
+                                <i class="fas fa-download"></i> Download QR Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>Instructions:</h3>
+                        <ol>
+                            <li>Enter the content you want to encode in the QR code (text, URL, etc.).</li>
+                            <li>Adjust the size, color, and background color as needed.</li>
+                            <li>Click "Generate QR Code" to create your QR code.</li>
+                            <li>Use the "Download QR Code" button to save your generated QR code.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title">Tooluxe</h4>
+                <p>A collection of useful web tools designed to help with everyday tasks. All tools are free to use and
+                    work directly in your browser.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tools</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="qr-scanner.html">QR Scanner</a></li>
+                    <li class="footer-link"><a href="password-generator.html">Password Generator</a></li>
+                    <li class="footer-link"><a href="text-to-speech.html">Text to Speech</a></li>
+                    <li class="footer-link"><a href="text-analyzer.html">Text Analyzer</a></li>
+                    <li class="footer-link"><a href="unit-converter.html">Unit Converter</a></li>
+                    <li class="footer-link"><a href="weather-forecast.html">Weather Forecast</a></li>
+                    <li class="footer-link"><a href="url-shortener.html">URL Shortener</a></li>
+                    <li class="footer-link"><a href="color-picker.html">Color Picker</a></li>
+                    <li class="footer-link"><a href="image-enhancer.html">Image Enhancer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/about.html">About Us</a></li>
+                    <li class="footer-link"><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li class="footer-link"><a href="/terms-of-service.html">Terms of Service</a></li>
+                    <li class="footer-link"><a href="/contact.html">Contact</a></li>
+                    <li class="footer-link"><a href="https://tooluxe-blogs.netlify.app/" target="_blank">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Tooluxe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/qr-scanner.js"></script>
+    <script src="../js/schema.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            injectPageSchemas('qr-scanner');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Tooluxe offers free online tools including image enhancer, QR code scanner, password generator, text-to-speech converter, text analyzer, and unit converter.">
+    <meta name="keywords" content="tooluxe, online tools, web tools, image enhancer, qr scanner, password generator, text to speech, text analyzer, unit converter">
+    <meta name="author" content="Rehaan Hussain. S">
+    <link rel="canonical" href="https://tooluxe.netlify.app/">
+    <meta property="og:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta property="og:description" content="Free online tools for everyday tasks - Image enhancer, QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta property="og:url" content="https://tooluxe.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta name="twitter:description" content="Free online tools for everyday tasks - Image enhancer, QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta name="twitter:image" content="../assets/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Enhancer - Tooluxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="/assets/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="navbar-logo">
+                <img src="../assets/logo.jpg" alt="Tooluxe Logo" style="height: 30px; margin-right: 10px;"> Tooluxe
+            </a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="../index.html" class="navbar-link">Home</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/about.html" class="navbar-link">About us</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/index.html#our-tools" class="navbar-link">Our Tools</a>
+                </li>
+                
+                <li class="navbar-item">
+                    <a href="/contact.html" class="navbar-link">Contact us</a>
+                </li>
+
+                <li class="navbar-item">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container breadcrumbs-container">
+            <div class="breadcrumb-item">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+            </div>
+            <div class="breadcrumb-item">
+                <a href="image-enhancer.html" class="breadcrumb-link active">Image Enhancer</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container tool-container">
+            <div class="tool-header">
+                <h1>Image Enhancer</h1>
+                <p class="tool-description">Enhance your images with advanced filters and adjustments</p>
+            </div>
+
+            <div class="card">
+                <div class="text-center mb-3">
+                    <div id="image-container" class="image-container">
+                        <div id="preview-container">
+                            <img id="preview-image" src="" alt="Preview" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <input type="file" id="image-input" class="form-control" accept="image/*" style="display: none;">
+                        <button id="upload-button" class="btn btn-primary">
+                            <i class="fas fa-upload"></i> Upload Image
+                        </button>
+                        <button id="reset-button" class="btn btn-outline" style="display: none;">
+                            <i class="fas fa-undo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div id="enhancement-controls" class="enhancement-controls mt-3" style="display: none;">
+                    <div class="form-group">
+                        <label for="brightness">Brightness</label>
+                        <div class="slider-input-group">
+                            <input type="range" id="brightness" class="form-range" min="0" max="200" value="100">
+                            <input type="number" id="brightness-input" class="form-control" min="0" max="200" value="100">
+                            <span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contrast">Contrast</label>
+                        <div class="slider-input-group">
+                            <input type="range" id="contrast" class="form-range" min="0" max="200" value="100">
+                            <input type="number" id="contrast-input" class="form-control" min="0" max="200" value="100">
+                            <span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="saturation">Saturation</label>
+                        <div class="slider-input-group">
+                            <input type="range" id="saturation" class="form-range" min="0" max="200" value="100">
+                            <input type="number" id="saturation-input" class="form-control" min="0" max="200" value="100">
+                            <span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blur">Blur</label>
+                        <div class="slider-input-group">
+                            <input type="range" id="blur" class="form-range" min="0" max="10" value="0">
+                            <input type="number" id="blur-input" class="form-control" min="0" max="10" value="0" step="0.1">
+                            <span>px</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sharpness">Sharpness</label>
+                        <div class="slider-input-group">
+                            <input type="range" id="sharpness" class="form-range" min="0" max="200" value="100">
+                            <input type="number" id="sharpness-input" class="form-control" min="0" max="200" value="100">
+                            <span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hd-quality">HD Quality</label>
+                        <div class="slider-input-group">
+                            <input type="range" id="hd-quality" class="form-range" min="1" max="4" value="2" step="0.5">
+                            <input type="number" id="hd-input" class="form-control" min="1" max="4" value="2" step="0.5">
+                            <span>x</span>
+                        </div>
+                        <small class="text-muted">Higher values increase image resolution but may affect performance</small>
+                    </div>
+
+                    <div class="mt-3">
+                        <button id="download-button" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download Enhanced Image
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h3>Instructions:</h3>
+                    <ol>
+                        <li>Click "Upload Image" to select an image from your device.</li>
+                        <li>Use the sliders to adjust various image properties:</li>
+                        <ul>
+                            <li>Brightness: Adjust the overall lightness of the image</li>
+                            <li>Contrast: Modify the difference between light and dark areas</li>
+                            <li>Saturation: Change the intensity of colors</li>
+                            <li>Blur: Add a soft blur effect to the image</li>
+                            <li>Sharpness: Enhance the detail and clarity of the image</li>
+                            <li>HD Quality: Increase the resolution of the image (1x to 4x)</li>
+                        </ul>
+                        <li>Click "Download Enhanced Image" to save your enhanced image.</li>
+                        <li>Use "Reset" to start over with the original image.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title">Tooluxe</h4>
+                <p>A collection of useful web tools designed to help with everyday tasks. All tools are free to use and
+                    work directly in your browser.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tools</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="qr-scanner.html">QR Scanner</a></li>
+                    <li class="footer-link"><a href="password-generator.html">Password Generator</a></li>
+                    <li class="footer-link"><a href="text-to-speech.html">Text to Speech</a></li>
+                    <li class="footer-link"><a href="text-analyzer.html">Text Analyzer</a></li>
+                    <li class="footer-link"><a href="unit-converter.html">Unit Converter</a></li>
+                    <li class="footer-link"><a href="weather-forecast.html">Weather Forecast</a></li>
+                    <li class="footer-link"><a href="url-shortener.html">URL Shortener</a></li>
+                    <li class="footer-link"><a href="color-picker.html">Color Picker</a></li>
+                    <li class="footer-link"><a href="image-enhancer.html">Image Enhancer</a></li>                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/about.html">About Us</a></li>
+                    <li class="footer-link"><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li class="footer-link"><a href="/terms-of-service.html">Terms of Service</a></li>
+                    <li class="footer-link"><a href="/contact.html">Contact</a></li>
+                    <li class="footer-link"><a href="https://tooluxe-blogs.netlify.app/" target="_blank">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Tooluxe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/image-enhancer.js"></script>
+    <script src="../js/schema.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            injectPageSchemas('image-enhancer');
+        });
+    </script>
+</body>
+</html> 

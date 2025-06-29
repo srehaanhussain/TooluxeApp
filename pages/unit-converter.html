@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Tooluxe offers free online tools including QR code scanner, password generator, text-to-speech converter, text analyzer, and unit converter.">
+    <meta name="keywords" content="tooluxe, online tools, web tools, qr scanner, password generator, text to speech, text analyzer, unit converter">
+    <meta name="author" content="Rehaan Hussain. S">
+    <link rel="canonical" href="https://tooluxe.netlify.app/">
+    <meta property="og:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta property="og:description" content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta property="og:url" content="https://tooluxe.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta name="twitter:description" content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta name="twitter:image" content="../assets/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - Tooluxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="/assets/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="navbar-logo">
+                <img src="../assets/logo.jpg" alt="Tooluxe Logo" style="height: 30px; margin-right: 10px;"> Tooluxe
+            </a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="../index.html" class="navbar-link">Home</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/about.html" class="navbar-link">About us</a>
+                </li>
+                
+                <li class="navbar-item">
+                    <a href="/index.html#our-tools" class="navbar-link">Our Tools</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/contact.html" class="navbar-link">Contact us</a>
+                </li>
+
+                
+                <li class="navbar-item">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container breadcrumbs-container">
+            <div class="breadcrumb-item">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+            </div>
+            <div class="breadcrumb-item">
+                <a href="unit-converter.html" class="breadcrumb-link active">Unit Converter</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container tool-container">
+            <div class="tool-header">
+                <h1>Unit Converter</h1>
+                <p class="tool-description">Convert between different units of measurement</p>
+            </div>
+
+            <div class="card">
+                <div class="form-group">
+                    <label for="conversion-type" class="form-label">Conversion Type:</label>
+                    <select id="conversion-type" class="form-control">
+                        <option value="length">Length</option>
+                        <option value="area">Area</option>
+                        <option value="volume">Volume</option>
+                        <option value="weight">Weight/Mass</option>
+                        <option value="temperature">Temperature</option>
+                        <option value="time">Time</option>
+                        <option value="speed">Speed</option>
+                        <option value="pressure">Pressure</option>
+                        <option value="energy">Energy</option>
+                        <option value="data">Digital Storage</option>
+                    </select>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="from-unit" class="form-label">From:</label>
+                            <select id="from-unit" class="form-control">
+                                <!-- Units will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="to-unit" class="form-label">To:</label>
+                            <select id="to-unit" class="form-control">
+                                <!-- Units will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="from-value" class="form-label">Value:</label>
+                            <input type="number" id="from-value" class="form-control" value="1" step="any">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="to-value" class="form-label">Result:</label>
+                            <div class="result-container p-2">
+                                <span id="to-value">0</span>
+                                <button id="copy-result" class="copy-btn" title="Copy to clipboard">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button id="convert-btn" class="btn btn-primary">
+                        <i class="fas fa-exchange-alt"></i> Convert
+                    </button>
+                    <button id="swap-btn" class="btn btn-outline">
+                        <i class="fas fa-sync"></i> Swap Units
+                    </button>
+                    <button id="clear-btn" class="btn btn-outline">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+
+                <div class="mt-4">
+                    <h3>Common Conversions:</h3>
+                    <div class="row mt-2">
+                        <div class="col-6 mb-2">
+                            <button class="btn btn-outline btn-block common-conversion" data-type="length" data-from="meters" data-to="feet" data-value="1">
+                                1 meter to feet
+                            </button>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <button class="btn btn-outline btn-block common-conversion" data-type="weight" data-from="kilograms" data-to="pounds" data-value="1">
+                                1 kilogram to pounds
+                            </button>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <button class="btn btn-outline btn-block common-conversion" data-type="temperature" data-from="celsius" data-to="fahrenheit" data-value="0">
+                                0°C to Fahrenheit
+                            </button>
+                        </div>
+                        <div class="col-6 mb-2">
+                            <button class="btn btn-outline btn-block common-conversion" data-type="volume" data-from="liters" data-to="gallons_us" data-value="1">
+                                1 liter to gallons
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="conversion-formula" class="mt-4" style="display: none;">
+                    <h3>Conversion Formula:</h3>
+                    <p id="formula-text"></p>
+                </div>
+
+                <div class="mt-4">
+                    <h3>Conversion History:</h3>
+                    <div id="conversion-history" class="mt-2">
+                        <p>No conversions yet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title">Tooluxe</h4>
+                <p>A collection of useful web tools designed to help with everyday tasks. All tools are free to use and
+                    work directly in your browser.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tools</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="qr-scanner.html">QR Scanner</a></li>
+                    <li class="footer-link"><a href="password-generator.html">Password Generator</a></li>
+                    <li class="footer-link"><a href="text-to-speech.html">Text to Speech</a></li>
+                    <li class="footer-link"><a href="text-analyzer.html">Text Analyzer</a></li>
+                    <li class="footer-link"><a href="unit-converter.html">Unit Converter</a></li>
+                    <li class="footer-link"><a href="weather-forecast.html">Weather Forecast</a></li>
+                    <li class="footer-link"><a href="url-shortener.html">URL Shortener</a></li>
+                    <li class="footer-link"><a href="color-picker.html">Color Picker</a></li>
+                    <li class="footer-link"><a href="image-enhancer.html">Image Enhancer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/about.html">About Us</a></li>
+                    <li class="footer-link"><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li class="footer-link"><a href="/terms-of-service.html">Terms of Service</a></li>
+                    <li class="footer-link"><a href="/contact.html">Contact</a></li>
+                    <li class="footer-link"><a href="https://tooluxe-blogs.netlify.app/" target="_blank">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Tooluxe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/unit-converter.js"></script>
+    <script src="../js/schema.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            injectPageSchemas('unit-converter');
+        });
+    </script>
+</body>
+</html>

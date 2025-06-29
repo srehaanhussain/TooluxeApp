@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Tooluxe offers free online tools including QR code scanner, password generator, text-to-speech converter, text analyzer, and unit converter.">
+    <meta name="keywords" content="tooluxe, online tools, web tools, qr scanner, password generator, text to speech, text analyzer, unit converter">
+    <meta name="author" content="Rehaan Hussain. S">
+    <link rel="canonical" href="https://tooluxe.netlify.app/">
+    <meta property="og:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta property="og:description" content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta property="og:url" content="https://tooluxe.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta name="twitter:description" content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta name="twitter:image" content="../assets/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer - Tooluxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="/assets/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/theme.css">
+    <!-- TinyMCE CSS -->
+    <style>
+        .tox-tinymce {
+            border-radius: 8px !important;
+            margin-bottom: 1rem !important;
+        }
+        @media (max-width: 768px) {
+            .tox-tinymce {
+                height: 300px !important;
+            }
+        }
+        @media (min-width: 769px) {
+            .tox-tinymce {
+                height: 400px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="navbar-logo">
+                <img src="../assets/logo.jpg" alt="Tooluxe Logo" style="height: 30px; margin-right: 10px;"> Tooluxe
+            </a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="../index.html" class="navbar-link">Home</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/about.html" class="navbar-link">About us</a>
+                </li>
+                
+                <li class="navbar-item">
+                    <a href="/index.html#our-tools" class="navbar-link">Our Tools</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/contact.html" class="navbar-link">Contact us</a>
+                </li>
+
+                
+                <li class="navbar-item">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container breadcrumbs-container">
+            <div class="breadcrumb-item">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+            </div>
+            <div class="breadcrumb-item">
+                <a href="text-analyzer.html" class="breadcrumb-link active">Text Analyzer</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container tool-container">
+            <div class="tool-header">
+                <h1>Text Analyzer</h1>
+                <p class="tool-description">Analyze text for word count, character count, reading time, and other metrics</p>
+            </div>
+
+            <div class="card">
+                <div class="form-group">
+                    <label for="text-input" class="form-label">Enter Text:</label>
+                    <textarea id="text-input" class="form-control" placeholder="Type or paste text here to analyze..."></textarea>
+                </div>
+
+                <div class="form-group mt-3 btn-new-one">
+                    <button id="analyze-btn" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Analyze Text
+                    </button>
+                    <button id="clear-btn" class="btn btn-outline">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                    <button id="sample-btn" class="btn btn-outline">
+                        <i class="fas fa-file-alt"></i> Load Sample
+                    </button>
+                </div>
+
+                <div id="results-container" class="mt-4" style="display: none;">
+                    <h3>Analysis Results:</h3>
+                    
+                    <div class="row mt-3">
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <h4 class="card-title">Basic Statistics</h4>
+                                <div class="card-content">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Characters (with spaces):</span>
+                                        <span id="char-count-with-spaces">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Characters (without spaces):</span>
+                                        <span id="char-count-no-spaces">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Words:</span>
+                                        <span id="word-count">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Sentences:</span>
+                                        <span id="sentence-count">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Paragraphs:</span>
+                                        <span id="paragraph-count">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <h4 class="card-title">Reading Metrics</h4>
+                                <div class="card-content">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Reading Time:</span>
+                                        <span id="reading-time">0 min</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Speaking Time:</span>
+                                        <span id="speaking-time">0 min</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Readability Score:</span>
+                                        <span id="readability-score">N/A</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Reading Level:</span>
+                                        <span id="reading-level">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <h4 class="card-title">Word Analysis</h4>
+                                <div class="card-content">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Unique Words:</span>
+                                        <span id="unique-words">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Lexical Density:</span>
+                                        <span id="lexical-density">0%</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Average Word Length:</span>
+                                        <span id="avg-word-length">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Longest Word:</span>
+                                        <span id="longest-word">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-6 mb-3">
+                            <div class="card">
+                                <h4 class="card-title">Sentence Analysis</h4>
+                                <div class="card-content">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Average Sentence Length:</span>
+                                        <span id="avg-sentence-length">0 words</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Longest Sentence:</span>
+                                        <span id="longest-sentence-length">0 words</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Shortest Sentence:</span>
+                                        <span id="shortest-sentence-length">0 words</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <h4>Frequent Words:</h4>
+                        <div id="frequent-words" class="mt-2"></div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h3>About Text Analysis:</h3>
+                    <p>
+                        Text analysis provides insights into the structure and readability of your content. 
+                        This tool calculates various metrics to help you understand and improve your writing.
+                    </p>
+                    <p>
+                        <strong>Readability Score</strong> is based on the Flesch-Kincaid readability tests, which estimate 
+                        how difficult a text is to understand. A higher score indicates easier readability.
+                    </p>
+                    <p>
+                        <strong>Lexical Density</strong> is the percentage of unique words in your text, 
+                        which can indicate the richness of vocabulary used.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title">Tooluxe</h4>
+                <p>A collection of useful web tools designed to help with everyday tasks. All tools are free to use and
+                    work directly in your browser.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tools</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="qr-scanner.html">QR Scanner</a></li>
+                    <li class="footer-link"><a href="password-generator.html">Password Generator</a></li>
+                    <li class="footer-link"><a href="text-to-speech.html">Text to Speech</a></li>
+                    <li class="footer-link"><a href="text-analyzer.html">Text Analyzer</a></li>
+                    <li class="footer-link"><a href="unit-converter.html">Unit Converter</a></li>
+                    <li class="footer-link"><a href="weather-forecast.html">Weather Forecast</a></li>
+                    <li class="footer-link"><a href="url-shortener.html">URL Shortener</a></li>
+                    <li class="footer-link"><a href="color-picker.html">Color Picker</a></li>
+                    <li class="footer-link"><a href="image-enhancer.html">Image Enhancer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/about.html">About Us</a></li>
+                    <li class="footer-link"><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li class="footer-link"><a href="/terms-of-service.html">Terms of Service</a></li>
+                    <li class="footer-link"><a href="/contact.html">Contact</a></li>
+                    <li class="footer-link"><a href="https://tooluxe-blogs.netlify.app/" target="_blank">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Tooluxe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- TinyMCE Script -->
+    <script src="../js/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#text-input',
+            plugins: 'autoresize lists link image table code help wordcount',
+            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image | code | help',
+            menubar: 'file edit view insert format tools table help',
+            autoresize_bottom_margin: 16,
+            min_height: 1000,
+            max_height: 500,
+            content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 14px; }',
+            branding: false,
+            promotion: false,
+            paste_data_images: false,
+            paste_as_text: true,
+            setup: function(editor) {
+                editor.on('init', function() {
+                    // Initialize the text analyzer after TinyMCE is ready
+                    initTextAnalyzer();
+                });
+                
+                editor.on('change', function() {
+                    analyzeText();
+                });
+                
+                editor.on('keyup', function() {
+                    analyzeText();
+                });
+                
+                editor.on('paste', function(e) {
+                    // Handle paste event
+                    setTimeout(function() {
+                        analyzeText();
+                    }, 100);
+                });
+            }
+        });
+    </script>
+    <script src="../js/text-analyzer.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

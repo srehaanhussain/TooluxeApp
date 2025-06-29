@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Tooluxe offers free online tools including QR code scanner, password generator, text-to-speech converter, text analyzer, and unit converter.">
+    <meta name="keywords" content="tooluxe, online tools, web tools, qr scanner, password generator, text to speech, text analyzer, unit converter, color picker">
+    <meta name="author" content="Rehaan Hussain. S">
+    <link rel="canonical" href="https://tooluxe.netlify.app/">
+    <meta property="og:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta property="og:description" content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta property="og:url" content="https://tooluxe.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tooluxe - Multi-Tool Web Application">
+    <meta name="twitter:description" content="Free online tools for everyday tasks - QR scanner, password generator, text-to-speech, text analyzer, and unit converter.">
+    <meta name="twitter:image" content="../assets/logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker - Tooluxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="/assets/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/theme.css">
+    <style>
+        .color-picker-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        #color-picker {
+            width: 100%;
+            height: 50px;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+        }
+        #color-preview {
+            width: 100%;
+            height: 100px;
+            border-radius: var(--border-radius-md);
+            margin: var(--spacing-md) 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .color-values {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        .color-value-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius-md);
+        }
+        .color-value-item span {
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+        .copy-btn:hover {
+            color: var(--primary-dark);
+        }
+        #saved-colors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition-fast);
+        }
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Ad space styles */
+        .ad-container {
+            background-color: #f0f0f0;
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+        }
+        .ad-container p {
+            color: #888;
+            margin: 0;
+        }
+        .sidebar-ad {
+            margin-top: var(--spacing-lg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="navbar-logo">
+                <img src="../assets/logo.jpg" alt="Tooluxe Logo" style="height: 30px; margin-right: 10px;"> Tooluxe
+            </a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a href="../index.html" class="navbar-link">Home</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/about.html" class="navbar-link">About us</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="/index.html#our-tools" class="navbar-link">Our Tools</a>
+                </li>
+                
+                <li class="navbar-item">
+                    <a href="/contact.html" class="navbar-link">Contact us</a>
+                </li>
+
+                
+
+                
+                
+                <li class="navbar-item">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container breadcrumbs-container">
+            <div class="breadcrumb-item">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+            </div>
+            <div class="breadcrumb-item">
+                <a href="color-picker.html" class="breadcrumb-link active">Color Picker</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container container-two">
+            <div class="row">
+                <div class="col-8">
+                    <div class="tool-container">
+                        <div class="tool-header">
+                            <h1>Color Picker</h1>
+                            <p class="tool-description">Select, preview, and convert colors between different formats</p>
+                        </div>
+                        
+                        <!-- Ad space above tool -->
+                        <!-- <div class="ad-container">
+                            <p></p>
+                        </div> -->
+
+                        <div class="card">
+                            <div class="color-picker-container">
+                                <label for="color-picker" class="form-label">Select a Color:</label>
+                                <input type="color" id="color-picker" value="#4a6fa5">
+                                <div id="color-preview"></div>
+                            </div>
+
+                            <div class="color-values">
+                                <div class="color-value-item">
+                                    <label>HEX:</label>
+                                    <span id="color-value">#4A6FA5</span>
+                                    <button id="copy-hex" class="copy-btn" title="Copy HEX value">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <div class="color-value-item">
+                                    <label>RGB:</label>
+                                    <span id="rgb-value">rgb(74, 111, 165)</span>
+                                    <button id="copy-rgb" class="copy-btn" title="Copy RGB value">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <div class="color-value-item">
+                                    <label>HSL:</label>
+                                    <span id="hsl-value">hsl(215°, 38%, 47%)</span>
+                                    <button id="copy-hsl" class="copy-btn" title="Copy HSL value">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3>Saved Colors:</h3>
+                                    <button id="save-color" class="btn btn-outline">
+                                        <i class="fas fa-save"></i> Save Current Color
+                                    </button>
+                                </div>
+                                <div id="saved-colors" class="mt-2"></div>
+                                <p class="mt-2"><small>Click on a color to select it. Right-click to remove.</small></p>
+                            </div>
+
+                            <div class="mt-4">
+                                <h3>Color Picker Tips:</h3>
+                                <ul>
+                                    <li>Use the color picker to select any color</li>
+                                    <li>Copy color values in HEX, RGB, or HSL format</li>
+                                    <li>Save colors for later use</li>
+                                    <li>Click on saved colors to quickly select them again</li>
+                                    <li>Right-click on saved colors to remove them</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar with ad space -->
+                <!-- <div class="col-4">
+                    <div class="sidebar-ad ad-container" style="height: 600px;">
+                        <p></p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Ad space above footer -->
+    <!-- <div class="container">
+        <div class="ad-container" style="margin-top: var(--spacing-xl);">
+            <p></p>
+        </div>
+    </div> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title">Tooluxe</h4>
+                <p>A collection of useful web tools designed to help with everyday tasks. All tools are free to use and
+                    work directly in your browser.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Tools</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="qr-scanner.html">QR Scanner</a></li>
+                    <li class="footer-link"><a href="password-generator.html">Password Generator</a></li>
+                    <li class="footer-link"><a href="text-to-speech.html">Text to Speech</a></li>
+                    <li class="footer-link"><a href="text-analyzer.html">Text Analyzer</a></li>
+                    <li class="footer-link"><a href="unit-converter.html">Unit Converter</a></li>
+                    <li class="footer-link"><a href="weather-forecast.html">Weather Forecast</a></li>
+                    <li class="footer-link"><a href="url-shortener.html">URL Shortener</a></li>
+                    <li class="footer-link"><a href="color-picker.html">Color Picker</a></li>
+                    <li class="footer-link"><a href="image-enhancer.html">Image Enhancer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/about.html">About Us</a></li>
+                    <li class="footer-link"><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li class="footer-link"><a href="/terms-of-service.html">Terms of Service</a></li>
+                    <li class="footer-link"><a href="/contact.html">Contact</a></li>
+                    <li class="footer-link"><a href="https://tooluxe-blogs.netlify.app/" target="_blank">Blogs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <span id="current-year">2025</span> Tooluxe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/color-picker.js"></script>
+    <script src="../js/schema.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            injectPageSchemas('color-picker');
+        });
+    </script>
+</body>
+</html>
